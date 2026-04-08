@@ -6,7 +6,7 @@
 	let { data } = $props<{ data: PageData }>();
 </script>
 
-<Seo title={`${data.post.title} | 许特的技术博客`} description={data.post.description} />
+<Seo title={`${data.post.title} | 徐特的技术博客`} description={data.post.description} />
 
 <article class="post-detail">
 	<div class="post-header">

@@ -43,7 +43,7 @@
 			<a class="brand" href={`${base}/`}>
 				<span class="brand-mark">XT</span>
 				<span class="brand-copy">
-					<strong>许特的技术博客</strong>
+					<strong>徐特的技术博客</strong>
 					<small>Frontend · Svelte · Engineering</small>
 				</span>
 			</a>
@@ -70,7 +70,7 @@
 	<footer class="site-footer">
 		<div class="container footer-inner">
 			<div>
-				<p class="footer-title">© 2026 许特</p>
+				<p class="footer-title">© 2026 徐特</p>
 				<p>Built with Svelte 5 · Markdown publishing · GitHub Pages deployment</p>
 			</div>
 			<div class="footer-meta">

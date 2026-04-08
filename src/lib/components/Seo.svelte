@@ -1,6 +1,6 @@
 <script lang="ts">
 	let {
-		title = '许特的技术博客',
+		title = '徐特的技术博客',
 		description = '用 Svelte 5 记录前端工程化、实践总结与技术思考。'
 	} = $props<{ title?: string; description?: string }>();
 </script>

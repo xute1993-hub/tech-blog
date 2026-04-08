@@ -3,12 +3,12 @@
 	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<Seo title="关于我 | 许特的技术博客" description="关于作者、写作主题和站点定位。" />
+<Seo title="关于我 | 徐特的技术博客" description="关于作者、写作主题和站点定位。" />
 
 <section class="about-hero">
 	<div class="intro-card">
 		<p class="eyebrow">About the Author</p>
-		<h1>你好，我是许特</h1>
+		<h1>你好，我是徐特</h1>
 		<p>
 			一名前端开发者，持续关注 Svelte、前端工程化、性能优化与长期可维护的项目设计。
 		</p>

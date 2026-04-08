@@ -32,7 +32,7 @@
 	const allTags = $derived([...new Set(data.posts.flatMap((post: PostMeta) => post.tags))]);
 </script>
 
-<Seo title="文章归档 | 许特的技术博客" description="浏览全部 Markdown 技术文章与实践总结。" />
+<Seo title="文章归档 | 徐特的技术博客" description="浏览全部 Markdown 技术文章与实践总结。" />
 
 <section class="page-header">
 	<div>
