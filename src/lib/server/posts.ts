@@ -25,6 +25,17 @@ function normalizeTags(tags: unknown) {
 	return tags.map((tag) => String(tag));
 }
 
+function stripMarkdown(markdown: string) {
+	return markdown
+		.replace(/```[\s\S]*?```/g, ' ')
+		.replace(/`([^`]+)`/g, '$1')
+		.replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+		.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+		.replace(/[#>*_~\-]/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
 function createPost(filePath: string, source: string): Post {
 	const slug = filePath.split('/').pop()?.replace(/\.md$/, '') ?? 'post';
 	const { data, content } = matter(source);
@@ -37,6 +48,7 @@ function createPost(filePath: string, source: string): Post {
 	const readingTime = String(data.readingTime ?? estimateReadingTime(content));
 	const cover = data.cover ? String(data.cover) : undefined;
 	const html = marked.parse(content) as string;
+	const searchableText = [title, description, tags.join(' '), stripMarkdown(content)].join(' ').toLowerCase();
 
 	return {
 		slug,
@@ -47,7 +59,8 @@ function createPost(filePath: string, source: string): Post {
 		published,
 		readingTime,
 		cover,
-		html
+		html,
+		searchableText
 	};
 }
 
@@ -66,4 +79,13 @@ export function getPostBySlug(slug: string) {
 
 export function getAllSlugs() {
 	return posts.map((post) => post.slug);
+}
+
+export function searchPosts(query: string) {
+	const keyword = query.trim().toLowerCase();
+	if (!keyword) return postMetas;
+
+	return posts
+		.filter((post) => (post.searchableText ?? '').includes(keyword))
+		.map(({ html: _html, ...meta }) => meta);
 }

@@ -7,6 +7,7 @@ export type PostMeta = {
 	readingTime: string;
 	cover?: string;
 	published: boolean;
+	searchableText?: string;
 };
 
 export type Post = PostMeta & {

@@ -25,3 +25,13 @@ test('theme toggle switches label', async ({ page }) => {
 	await toggle.click();
 	await expect(toggle).not.toHaveText(before);
 });
+
+test('blog search filters posts by keyword', async ({ page }) => {
+	await page.goto('/blog/');
+
+	await page.getByPlaceholder('搜索标题、描述、标签或正文关键字').fill('长期成本');
+
+	await expect(page.getByText('搜索词：')).toBeVisible();
+	await expect(page.getByRole('link', { name: /前端工程化里最容易被忽视的长期成本/ })).toBeVisible();
+	await expect(page.getByRole('link', { name: /欢迎来到我的 Markdown 技术博客/ })).toHaveCount(0);
+});
